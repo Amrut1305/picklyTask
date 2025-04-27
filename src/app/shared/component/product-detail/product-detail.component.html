@@ -1,0 +1,117 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card detailCard mt-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 d-flex justify-content-center align-item-center">
+                            <!-- {{product|json}} -->
+                            <div class="selectImage ">
+                                <div  class="img mb-1" *ngFor="let img of product.images.slice(0,5)">
+                                    <img (click)="onSelectImage(img)" [src]="img" [alt]="product.title" [title]="product.title">
+                                </div>
+                            </div>
+                            
+                            <div class="cardimg">
+                                <img [src]="selectedImg" height="350" [alt]="product.title" [title]="product.title">
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <p class="my-3">Category : <span class="picklyText">{{product.category}}</span></p>
+                            <h3>{{product.title}}</h3>
+                            <div class="rating d-flex align-item-center">
+                                <div>
+                                    {{product.rating}}
+                                    <app-rating [rating]="product.rating"></app-rating>
+                                </div>
+                                <span class="mx-2">|</span>
+                                <div>
+                                    <p>Review Count ({{product.reviews_count}})</p>
+                                </div>
+                                <span class="mx-2">|</span>
+                                <div>
+                                    <p class="picklyText">View Shop</p>
+                                </div>
+                            </div>
+                            <mat-divider></mat-divider>
+                            <h2 class="my-3 text-danger">{{product.total_price}}</h2>
+                            <div class="my-2" *ngFor="let spec of product.product_specifications">
+                                <p><strong>{{spec.specification_name}}</strong> : {{spec.specification_value}}</p>
+                            </div>
+                            <mat-divider></mat-divider>
+                            <div class="discription">
+                                <h3 class="my-2">
+                                    <strong>Product Discription</strong>
+                                </h3>
+                                <div class="point" *ngFor="let des of product.product_description">
+                                    <div class="d-flex align-item-center">
+                                        <div class="mr-2 mt-1 size"><mat-icon style="font-size: 12px;">lens</mat-icon></div>
+                                        <div>{{des}}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mr-3">
+                                <div class="card-body">
+                                    <h2 class="my-2">{{product.total_price}}</h2>
+                                    <div class="div d-flex align-item-center">
+                                        <div class="mr-3 my-auto"><mat-icon >local_shipping</mat-icon></div>
+                                        <div class="mr-3 my-auto"><p>Shipping to : </p></div>
+                                        <select class="form-control" id="shipping">
+                                            <option value="home">Home</option>
+                                            <option value="office">office</option>
+                                        </select>
+                                    </div>
+                                    <div class="quantity my-2 d-flex align-item-center">
+                                        <div>
+                                            <p class="mr-3">Product Count</p>
+                                        </div>
+
+                                        <div (click)="onProductRemove()" class="box box1 d-flex justify-content-center align-item-center">
+                                            <span>-</span>
+                                        </div>
+
+                                        <div class="box d-flex justify-content-center align-item-center">
+                                            <span>{{prodCount}}</span>
+                                        </div>
+
+                                        <div (click)="onProductAdd()"  class="box box2 d-flex justify-content-center align-item-center">
+                                            <span>+</span>
+                                        </div>
+                                    </div>
+                                    <div class="btns">
+                                        <button class="btns" mat-raised-button color color="warn">
+                                            <div class="mr-3 py-2 d-flex align-item-center w-100">
+                                                <mat-icon class="mr-3 mt-1" >add_shopping_cart</mat-icon>
+                                                <span>Add To Cart</span>
+                                            </div>
+                                        </button>
+
+                                        <button mat-raised-button color class="picklyBtn btns mt-2">
+                                            <div class="mr-3 py-2 d-flex align-item-center w-100">
+                                                <span>Buy Now</span>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <p class="mt-3">Return policy :</p>
+                                        <div *ngIf="product.return_policy; else noReturn">
+                                            <p>{{product.return_policy}}</p>
+                                        </div>
+                                        <ng-template #noReturn>
+                                            <p class="text-danger">No Return Available For This Product</p>
+                                        </ng-template>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

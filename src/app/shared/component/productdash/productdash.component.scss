@@ -1,0 +1,33 @@
+.productCard{
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    &:hover{
+        border: 1px solid #7C3AED;
+    }
+    &:hover .sidePanel{
+        right: 10px;
+    }
+    .picklyText{
+        color: #7C3AED;
+    }
+    .sidePanel{
+        position: absolute;
+        top: 10px;
+        right: -30px;
+        transition: all 0.4s linear;
+        .circle{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #7C3AED;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+    }
+    
+}
+

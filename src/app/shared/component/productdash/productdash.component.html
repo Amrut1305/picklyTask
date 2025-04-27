@@ -1,0 +1,30 @@
+
+    <div class="row">
+        <div class="col-md-2 mb-2" *ngFor="let prod of allProduct">
+            <div [routerLink]="prod._id" class="productCard h-100">
+                <div class="cardImg text-center">
+                    <img [src]="prod.images" [alt]="prod.title" [title]="prod.title" height="250">
+                </div>
+                <mat-divider></mat-divider>
+                <div class="cardInfo p-3 pb-1">
+                    <p class="MY-2">{{prod.category}}</p>
+                <h3 class="my-1 picklyText">{{prod.title}}</h3>
+                <h4>{{prod.total_price}}</h4>
+                </div>
+                <div class="sidePanel">
+                    <div class="circle">
+                        <mat-icon>shopping_cart</mat-icon>
+                    </div>
+                    <div class="circle">
+                        <mat-icon>visibility</mat-icon>
+                    </div>
+                    <div class="circle">
+                        <mat-icon>favorite</mat-icon>
+                    </div>
+                    <div class="circle">
+                        <mat-icon>shuffle</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

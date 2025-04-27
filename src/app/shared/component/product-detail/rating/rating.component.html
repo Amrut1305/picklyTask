@@ -1,0 +1,5 @@
+<div *ngFor="let star of stars">
+    <i class="text-warning"
+    [ngClass]="rating>=star? 'fa-solid fa-star':(rating >= star-0.7?'fa-solid fa-star-half-stroke':'fa-solid fa-star')"
+    ></i>
+</div>

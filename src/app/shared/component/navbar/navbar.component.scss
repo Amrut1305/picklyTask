@@ -1,0 +1,15 @@
+.picklySearch{
+    border: 1px solid #7C3AED;
+}
+.picklyBtn{
+    border: 1px solid #7C3AED;
+    color: #7C3AED;
+    &:hover,&:focus,&:active{
+        background-color: #7C3AED;
+        color: #fff;
+    }
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: #7C3AED
+}
